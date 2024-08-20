@@ -1,0 +1,11 @@
+FROM tarantool/tarantool:latest
+
+RUN apt-get update && apt-get install -y git tarantool-dev cmake gcc
+
+RUN tt rocks install vshard 
+
+COPY tarantool_conf/init.lua /opt/tarantool/init.lua
+
+CMD ["tarantool", "/opt/tarantool/init.lua"]
+
+

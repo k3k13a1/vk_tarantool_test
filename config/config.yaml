@@ -1,0 +1,9 @@
+srv:
+  host: "0.0.0.0"
+  port: 8080
+
+tarantool:
+  host: "tarantool-instance" 
+  port: 3301
+  user: "testuser"
+  pass: "pass"

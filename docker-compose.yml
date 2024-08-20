@@ -1,0 +1,28 @@
+name: backend_tt
+
+services:
+  tarantool:
+    build: 
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: tarantool-instance
+    ports:
+      - "3301:3301"
+    restart: unless-stopped
+
+  backend:
+    image: backend_tt
+    container_name: backend_tt
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - tarantool
+        
+
+volumes:
+  tarantool:
+    driver: local
