@@ -6,6 +6,10 @@
 docker-compose up
 ```
 
+## Описание
+
+Создание API для KeyValue-хранилища Tarantool
+
 ## Описание ручек
 
 ### Логин
@@ -34,7 +38,10 @@ status = 200
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU29tZSBSaWNrcm9sbCJ9.TnMTNkbyt12KHJ55fQFX1Cz-SA5V4UqJkZop5Ufp2SQ"
 }
 
-status = 500
+Также возможны:
+
+    - 401 (Unauthorized)
+    - 500 (Internal Server Error)
 ```
 
 ### Запись
@@ -67,7 +74,11 @@ status = 200
     "status": "success"
 }
 
-status = 500
+Также возможны:
+
+    - 400 (Bad Request)
+    - 401 (Unauthorized)
+    - 500 (Internal Server Error)
 ```
 
 ### Чтение
@@ -100,5 +111,9 @@ status = 200
     }
 }
 
-status = 500
+Также возможны:
+
+    - 400 (Bad Request)
+    - 401 (Unauthorized)
+    - 500 (Internal Server Error)
 ```
