@@ -13,13 +13,13 @@ FROM alpine:latest
 
 RUN apk add --no-cache openssl
 
-RUN mkdir -p /app/keys
+RUN mkdir -p /keys
 
 # Генерация закрытого ключа
-RUN openssl genpkey -algorithm RSA -out /app/keys/private_key.pem -pkeyopt rsa_keygen_bits:2048
+RUN openssl genpkey -algorithm RSA -out /keys/private.pem -pkeyopt rsa_keygen_bits:2048
 
 # Генерация открытого ключа на основе закрытого
-RUN openssl rsa -pubout -in /app/keys/private_key.pem -out /app/keys/public_key.pem
+RUN openssl rsa -pubout -in /keys/private.pem -out /keys/public.pem
 
 COPY --from=BuildStage /app/tt /app/tt
 
